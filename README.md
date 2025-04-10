@@ -25,7 +25,7 @@ Create a `lovehub` folder in your Home Assistant top-level directory, and add th
 ```plaintext
 homeassistant/
 ├── lovehub/
-│   └── power_ui_main/
+│   └── ha-power-view-main/
 │       ├── power_ui_view.yaml
 │       ├── README.md
 │       └── sensors.yaml
