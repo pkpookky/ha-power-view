@@ -1,0 +1,299 @@
+type: sections
+max_columns: 4
+title: Testing
+path: testing
+sections:
+  - type: grid
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: conditional
+            conditions:
+              - condition: numeric_state
+                above: 0
+                entity: sensor.dummy_grid_power
+            card:
+              type: markdown
+              content: >-
+                **Importing Electricity** ⚡ {{ states('sensor.dummy_grid_power')
+                | float | round(2) }} kW
+              card_mod:
+                style: |
+                  :host {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 400px;
+                  }
+                  ha-card {
+                    background: linear-gradient(135deg, #FDE68A, #F59E0B);
+                    padding: 10px;
+                    border-radius: 12px;
+                    text-align: center;
+                    font-size: 1.2em;
+                    color: black;
+                    border-radius: 50px;
+                    box-shadow:
+                      0 0 12px rgba(255, 234, 0, 0.6),
+                      0 0 24px rgba(255, 234, 0, 0.4),
+                      0 0 36px rgba(255, 234, 0, 0.2);
+                    margin: 20px 10px 0
+                  }
+          - type: conditional
+            conditions:
+              - condition: numeric_state
+                below: 0
+                entity: sensor.dummy_grid_power
+            card:
+              type: markdown
+              content: >-
+                **Exporting Electricity** ⚡ {{
+                (states('sensor.dummy_grid_power') | float * -1) | round(2) }}
+                kW
+              card_mod:
+                style: |
+                  :host {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 400px;
+                  }
+                  ha-card {
+                    background: linear-gradient(135deg, #bbf7d0, #22c55e);
+                    padding: 10px;
+                    border-radius: 50px;
+                    text-align: center;
+                    font-size: 1.2em;
+                    color: black;
+                    box-shadow:
+                      0 0 12px rgba(34, 197, 94, 0.6),
+                      0 0 24px rgba(34, 197, 94, 0.4),
+                      0 0 36px rgba(34, 197, 94, 0.2);
+                    margin: 20px 10px 0
+                  }
+        grid_options:
+          columns: full
+      - type: vertical-stack
+        cards:
+          - type: conditional
+            conditions:
+              - condition: numeric_state
+                above: 0
+                entity: sensor.dummy_battery_power
+            card:
+              type: markdown
+              content: >-
+                **Discharging Battery** 🔋 {{
+                (states('sensor.dummy_battery_power') | float ) | round(2) }} kW
+              card_mod:
+                style: |
+                  :host {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 400px;
+                  }
+                  ha-card {
+                    background: linear-gradient(135deg, #FDE68A, #F59E0B);
+                    padding: 10px;
+                    border-radius: 12px;
+                    text-align: center;
+                    font-size: 1.2em;
+                    color: black;
+                    border-radius: 50px;
+                    box-shadow:
+                      0 0 12px rgba(255, 234, 0, 0.6),
+                      0 0 24px rgba(255, 234, 0, 0.4),
+                      0 0 36px rgba(255, 234, 0, 0.2);
+                    margin: 20px 10px 0
+                  }
+          - type: conditional
+            conditions:
+              - condition: numeric_state
+                entity: sensor.dummy_battery_power
+                below: 0
+            card:
+              type: markdown
+              content: >-
+                **Charging Battery** 🔋 {{ (states('sensor.dummy_battery_power')
+                | float * -1 ) | round(2) }} kW
+              card_mod:
+                style: |
+                  :host {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 400px;
+                  }
+                  ha-card {
+                    background: linear-gradient(135deg, #bbf7d0, #22c55e);
+                    padding: 10px;
+                    border-radius: 12px;
+                    text-align: center;
+                    font-size: 1.2em;
+                    color: black;
+                    border-radius: 50px;
+                    box-shadow:
+                      0 0 12px rgba(34, 197, 94, 0.6),
+                      0 0 24px rgba(34, 197, 94, 0.4),
+                      0 0 36px rgba(34, 197, 94, 0.2);
+                    margin: 20px 10px 0
+                  }
+        grid_options:
+          columns: full
+      - type: custom:mod-card
+        style: |
+          :host {
+            display: flex;
+            justify-content: center;
+          }
+        card:
+          type: horizontal-stack
+          cards:
+            - type: gauge
+              max: 11
+              entity: sensor.dummy_solar_power
+              name: Solar Incoming
+              card_mod:
+                style: |
+                  ha-card {
+                    margin: 30px 10px 0;
+                    padding: 10px;
+                    border: 2px solid;
+                    border-radius: 15px;
+                    box-shadow: 0 0 15px #039be5;
+
+                    background-color: rgba(27, 27, 27, 0.8);
+                  }
+            - type: gauge
+              entity: sensor.dummy_home_load
+              name: Current Home Load
+              max: 6
+              card_mod:
+                style: |
+                  ha-card {
+                    margin: 30px 10px 0;
+                    padding: 10px;
+                    border: 2px solid;
+                    border-radius: 15px;
+                    box-shadow: 0 0 15px #039be5;
+                    background-color: rgba(27, 27, 27, 0.8);
+                  }
+            - type: gauge
+              entity: sensor.dummy_battery_percentage
+              name: Powerwall Battery
+              card_mod:
+                style: |
+                  ha-card {
+                    margin: 30px 10px 0;
+                    padding: 10px;
+                    border: 2px solid;
+                    border-radius: 15px;
+                    box-shadow: 0 0 15px #039be5;
+                    background-color: rgba(27, 27, 27, 0.8);
+                  }
+        grid_options:
+          rows: auto
+          columns: full
+      - type: heading
+        heading: Today's Usage
+        heading_style: title
+        card_mod:
+          style: |
+            ha-card {
+              margin: 0 10px;
+            }
+      - type: custom:sankey-chart
+        layout: auto
+        height: 300
+        unit_prefix: k
+        round: 1
+        min_box_size: 3
+        min_box_distance: 5
+        show_states: true
+        show_units: true
+        show_names: true
+        wide: true
+        min_state: 0
+        grid_options:
+          columns: full
+        sections:
+          - entities:
+              - type: entity
+                children:
+                  - sensor.dummy_grid_exported
+                  - sensor.dummy_battery_charged
+                  - sensor.dummy_home_usage
+                entity_id: sensor.dummy_solar_generated
+                name: Solar Generated
+                color: "#fce02d"
+              - type: entity
+                children:
+                  - sensor.dummy_home_usage
+                entity_id: sensor.dummy_grid_imported
+                name: Grid Imported
+                color: "#039be5"
+            sort_by: state
+            sort_dir: desc
+          - entities:
+              - type: entity
+                children: []
+                entity_id: sensor.dummy_grid_exported
+                name: Grid Exported
+                color: "#039be5"
+              - type: entity
+                children: []
+                entity_id: sensor.dummy_battery_charged
+                name: Battery Charged
+                color: "#22c55e"
+              - type: entity
+                children:
+                  - sensor.dummy_home_usage
+                entity_id: sensor.dummy_battery_discharged
+                name: Battery Discharged
+                color: "#F59E0B"
+            sort_dir: desc
+          - entities:
+              - type: entity
+                children:
+                  - sensor.dummy_fridge
+                  - sensor.dummy_aircon
+                  - sensor.dummy_dishwasher
+                  - sensor.dummy_pc
+                  - sensor.dummy_washing_machine
+                entity_id: sensor.dummy_home_usage
+                name: Home Usage
+                color: "#ce67ea"
+          - entities:
+              - type: entity
+                children: []
+                entity_id: sensor.dummy_fridge
+              - type: entity
+                children: []
+                entity_id: sensor.dummy_aircon
+              - type: entity
+                children: []
+                entity_id: sensor.dummy_dishwasher
+              - type: entity
+                children: []
+                entity_id: sensor.dummy_pc
+              - type: entity
+                children: []
+                entity_id: sensor.dummy_washing_machine
+            sort_by: state
+            sort_dir: desc
+        card_mod:
+          style: |
+            ha-card {
+              margin: 0 10px;
+              padding: 15px;
+              border: 2px solid ;
+                  border-radius: 15px;
+                  box-shadow: 0 0 15px #039be5;
+              background-color: rgba(27, 27, 27, 0.8);
+            }
+    column_span: 4
+cards: []
+header:
+  card:
+    type: markdown
+    content: |
+      # ⚡
+    text_only: true
+badges: []

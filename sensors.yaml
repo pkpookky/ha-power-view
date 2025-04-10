@@ -1,0 +1,88 @@
+sensor:
+  - platform: template
+    sensors:
+      #conditional importing/exporting
+      dummy_grid_power:
+        friendly_name: "Grid Power"
+        unit_of_measurement: "kW"
+        value_template: "{{ -2.4 }}"
+      
+      # conditional charging/discharging
+      dummy_battery_power:
+        friendly_name: "Battery Power"
+        unit_of_measurement: "kW"
+        value_template: "{{ -5 }}"
+        
+      # gauges
+      dummy_solar_power:
+        friendly_name: "Solar Power"
+        unit_of_measurement: "kW"
+        value_template: "{{ 9.2 }}"
+        
+      dummy_home_load:
+        friendly_name: "Home Load"
+        unit_of_measurement: "kW"
+        value_template: "{{ 1.8 }}"
+        
+      dummy_battery_percentage:
+        friendly_name: "Battery %"
+        unit_of_measurement: "%"
+        value_template: "{{ 73 }}"
+
+      # sankey sensors
+      dummy_grid_imported:
+        friendly_name: "Grid Imported"
+        unit_of_measurement: "kWh"
+        value_template: "{{ 3 }}"
+        
+      dummy_solar_generated:
+        friendly_name: "Solar Generated"
+        unit_of_measurement: "kWh"
+        value_template: "{{ 10 }}"
+        
+      dummy_grid_exported:
+        friendly_name: "Grid Exported"
+        unit_of_measurement: "kWh"
+        value_template: "{{ 1.5 }}"
+
+      dummy_battery_charged:
+        friendly_name: "Battery Charged"
+        unit_of_measurement: "kWh"
+        value_template: "{{ 3.5 }}"
+
+      dummy_battery_discharged:
+        friendly_name: "Battery Discharged"
+        unit_of_measurement: "kWh"
+        value_template: "{{ 2.5 }}"
+
+      dummy_home_usage:
+        friendly_name: "Home Usage"
+        unit_of_measurement: "kWh"
+        value_template: "{{ 10.5 }}"
+        
+      # individual devices
+      dummy_dishwasher:
+        friendly_name: "Dishwasher"
+        unit_of_measurement: "kWh"
+        value_template: "{{ 1 }}"
+
+      dummy_aircon:
+        friendly_name: "Air Conditioner"
+        unit_of_measurement: "kWh"
+        value_template: "{{ 4 }}"
+
+      dummy_fridge:
+        friendly_name: "Fridge"
+        unit_of_measurement: "kWh"
+        value_template: "{{ 0.5 }}"
+
+      dummy_pc:
+        friendly_name: "PC and Peripherals"
+        unit_of_measurement: "kWh"
+        value_template: "{{ 3 }}"
+
+      dummy_washing_machine:
+        friendly_name: "Washing Machine"
+        unit_of_measurement: "kWh"
+        value_template: "{{ 2 }}"
+
