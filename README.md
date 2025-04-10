@@ -2,7 +2,7 @@
 
 Ready-to-use Home Assistant dashboard view with pre-configured dummy sensors that simulate solar panels, battery storage, and home energy usage. See the complete UI without any hardware setup or configuration needed. Just import and customise as desired.
 
-![Screenshot 2025-04-10 212332](https://github.com/user-attachments/assets/9119bb13-e3f8-4e92-8ea9-e6c0e37d06a3)
+![Screenshot 2025-04-10 212332](https://github.com/user-attachments/assets/c93f5dec-0068-4fbe-a487-074caa173694)
 
 ---
 
@@ -50,7 +50,7 @@ homeassistant:
 
 Click **Edit Dashboard** → **Add View** → **Three-dot menu** → **Edit YAML**.
 
-![Screenshot 2025-04-11 081635](https://github.com/user-attachments/assets/c47affa5-5d6b-4c62-b452-412fe195b1f8)
+![Screenshot 2025-04-11 081635](https://github.com/user-attachments/assets/c835a5b4-4528-4e80-b9d8-4f4cd298db8e)
 
 Then paste in the contents of `power_energy_demo_view.yaml`.
 
@@ -73,8 +73,8 @@ Muck about with the CSS to put your own flavour on it.
 > Conditional solar is importing when positive and exporting when negative (card not shown when zero)
 >
 > Conditional battery is exporting when negative and importing when positive (card not shown when zero)
->
-> ![Screenshot 2025-04-11 075336](https://github.com/user-attachments/assets/8f4b97fb-cbcb-4e5d-accf-7843d7519dcf)
+> 
+>![Screenshot 2025-04-11 075336](https://github.com/user-attachments/assets/ac3899a8-1298-45a0-9742-bccbdc05caa0)
 
 ---
 
