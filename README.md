@@ -1,6 +1,6 @@
 # 🔋 Custom Power UI
 
-Ready-to-use Home Assistant dashboard view with pre-configured dummy sensors that simulate solar panels, battery storage, and home energy usage. See the complete UI without any hardware setup or configuration needed. Just import and customise as desired.
+Ready-to-use Home Assistant dashboard view with pre-configured dummy sensors that simulate solar, battery, and home energy usage. See the complete UI without any hardware setup or configuration needed. Just import and customise as desired.
 
 ![Screenshot 2025-04-10 212332](https://github.com/user-attachments/assets/c93f5dec-0068-4fbe-a487-074caa173694)
 
@@ -52,7 +52,7 @@ Click **Edit Dashboard** → **Add View** → **Three-dot menu** → **Edit YAML
 
 ![Screenshot 2025-04-11 081635](https://github.com/user-attachments/assets/c835a5b4-4528-4e80-b9d8-4f4cd298db8e)
 
-Then paste in the contents of `power_energy_demo_view.yaml`.
+Then paste in the contents of `power_ui_view.yaml`.
 
 ---
 
