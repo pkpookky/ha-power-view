@@ -1,7 +1,7 @@
 type: sections
 max_columns: 4
-title: Testing
-path: testing
+title: lovehub-power
+path: lovehub-power
 sections:
   - type: grid
     cards:
